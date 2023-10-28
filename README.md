@@ -18,8 +18,14 @@ In the Active Directory Home Lab project, I created a functional Active Director
 <h2>Program walk-through:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://imgur.com/I4Ac37l.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+The network diagram illustrates the Active Directory Home Lab's structure. It features a Domain Controller (DC), a Client Machine, and two network connections: Internal (for internal communication) and External (providing internet access and routing for private network clients). This visual aids in understanding the project's network configuration. <br/>
+<br />
+<img src="https://imgur.com/UGgLac7.png" height="80%" width="80%" alt="Network Diagram"/>
+<br />
+<br />
+<p align="center">The first phase involved downloading essential components: Oracle VirtualBox, Windows 10 ISO, and Windows Server 2019 ISO.</p>
+
+
 <br />
 <br />
 Select the disk:  <br/>
