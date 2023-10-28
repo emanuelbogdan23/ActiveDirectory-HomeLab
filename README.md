@@ -15,7 +15,7 @@ In the Active Directory Home Lab project, I created a functional Active Director
 - <b>Windows 10</b> (21H2)
 - <b>Server 2019</b>
 
-<h2>Program walk-through:</h2>
+<h2>Project walk-through:</h2>
 
 <p align="center">
 The network diagram illustrates the Active Directory Home Lab's structure. It features a Domain Controller (DC), a Client Machine, and two network connections: Internal (for internal communication) and External (providing internet access and routing for private network clients). This visual aids in understanding the project's network configuration. <br/>
@@ -23,41 +23,105 @@ The network diagram illustrates the Active Directory Home Lab's structure. It fe
 <img src="https://imgur.com/UGgLac7.png" height="80%" width="80%" alt="Network Diagram"/>
 <br />
 <br />
-<p align="center">The first phase involved downloading essential components: Oracle VirtualBox, Windows 10 ISO, and Windows Server 2019 ISO.</p>
 
-
-<br />
-<br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ 
+<p align="center">The first phase involved downloading essential components: Oracle VirtualBox, Windows 10 ISO, and Windows Server 2019 ISO.
+From there, I created two virtual machines (VMs) within Oracle VirtualBox, a Domain Controller (DC) and a Client Machine. 
 </p>
+<br />
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+
+<div style="display: flex; align="center">
+  <div style="flex: 1;">
+    <h3>Setting Up Network Interface Cards (NICs)</h3>
+    <ul style="list-style-type: disc; margin: 10px 0 10px 20px;">
+      <li>Began by configuring the Network Interface Cards (NICs).</li>
+      <li>Two NICs in the network diagram: one for internet connectivity and another for the internal network.</li>
+      <li>The NIC dedicated to the internet automatically obtained an IP address from the home router.</li>
+      <li>Renamed the NIC for the internal network to "Internal" for clarity in network management.</li>
+      <li>Configured the IP addressing for the internal NIC:</li>
+      <ul style="list-style-type: circle; margin: 5px 0 5px 20px;">
+        <li>Set its IP address to 172.16.0.X, allowing flexibility in choosing X within the range.</li>
+        <li>Defined the subnet mask as 255.255.255.0.</li>
+        <li>Left the default gateway blank, as the Domain Controller would serve as the gateway.</li>
+        <li>Opted for DNS settings using either the Domain Controller's IP address or the loopback address (127.0.0.1), ensuring reliance on the internal network for DNS services.</li>
+      </ul>
+      <li>These initial steps were pivotal to establish a strong network foundation.</li>
+    </ul>
+  </div>
+<br />
+  <div align="center">
+    <img src="https://imgur.com/7mhaUQe.png" height="50%" width="50%" alt="Internal and External NICs with Internal IPv4 Properties"/>
+  </div>
+</div>
+<br />
+
+
+<h3>Installing Active Directory Domain Services (AD DS)</h3>
+<p>The next significant step was the installation of Active Directory Domain Services (AD DS):</p>
+<ul>  
+  <li><strong>Post-Deployment Configuration:</strong> After successfully installing AD DS, I addressed the post-deployment configuration, which included promoting the computer to a domain controller.</li>
+  <li><strong>Creating the Domain:</strong> During the domain creation process I used "mydomain.com" to create the domain structure. A secure password was set for the Directory Services Restore Mode.</li>
+  <li><strong>Account Management:</strong> I replaced the built-in administrator account with a dedicated domain admin account to enhance security. This new account was created in the Active Directory Users and Computers tool, assigned to the admins Organizational Unit, and configured with the appropriate permissions.</li>
+</ul>
+<br />
+<div align="center">
+ <img src="https://imgur.com/3RssOoc.png" height="90%" width="90%" alt="Deployment Configuration and Admin User Set Up"/>
+</div>
+<br />
+
+
+<h3>Installing RAS (Remote Access Server) and NAT (Network Address Translation)</h3>
+<p>In this stage, I focused on enhancing network capabilities by installing RAS (Remote Access Server) and NAT (Network Address Translation) on the domain controller. This setup allows the Windows 10 clients to reside on a private virtual network while still being able to access the internet through the domain controller. This was achieved through the following steps:</p>
+<ol>
+  <li>Opened the "Add Roles and Features" section in Windows Server.</li>
+  <li>Specified the server for installing RAS and NAT.</li>
+  <li>Selected the "Remote Access" role along with other components.</li>
+  <li>Installed routing and enabled NAT to facilitate internal clients' internet access.</li>
+  <li>Configured NAT settings to ensure the correct interface for internet connectivity.</li>
+</ol>
+<p>This configuration completes another vital component of the network infrastructure and aligns with our network diagram's objectives.</p>
+<br />
+<div align="center">
+ <img src="https://imgur.com/qROODSm.png" height="70%" width="70%" alt="Deployment Configuration and Admin User Set Up"/>
+</div>
+<br />
+
+
+<h3>Setting Up DHCP for Seamless Connectivity</h3>
+<p>Next, I established a DHCP (Dynamic Host Configuration Protocol) server on the domain controller to automate IP address allocation. My primary objective was to provide the Windows 10 clients with internet access while integrating them into a private internal network, resembling typical office or school environments.</p>
+<ul>
+  <li><strong>Accessing Roles and Features</strong>: I initiated the process by navigating to the "Add Roles and Features" section in Windows Server on the domain controller, preparing for the installation of the DHCP role and associated components.</li>
+  <li><strong>Configuring the DHCP Role</strong>: After selecting the DHCP role and including necessary features, I ensured the DHCP server's proper operation.</li>
+  <li><strong>Defining the DHCP Scope</strong>: I defined a DHCP scope specifying the IP address range (from 172.16.0.100 to 172.16.0.200) and a subnet mask (/24) for automatic IP assignment to client devices.</li>
+  <li><strong>No Exclusions</strong>: To maintain flexibility in IP assignments, I chose not to exclude specific IP addresses from the scope.</li>
+  <li><strong>Lease Duration</strong>: Considering lab requirements and efficient scope management, I set the lease duration for IP addresses to 8 days.</li>
+  <li><strong>Configuring DHCP Options</strong>: Vital information such as the default gateway and DNS server was configured as DHCP options to be provided to client devices.</li>
+  <li><strong>Activation of DHCP Scope</strong>: The DHCP scope was activated, rendering the DHCP server ready to allocate IP addresses to clients.</li>
+</ul>
+<p>This pivotal step ensures seamless internet connectivity for our Windows 10 clients while they operate within our private network. It aligns perfectly with the objectives set forth in our network diagram, significantly enhancing the overall functionality and resilience of our lab environment.</p>
+<div align="center">
+ <img src="https://imgur.com/8GeBvRi.png" height="90%" width="90%" alt="Deployment Configuration and Admin User Set Up"/>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
