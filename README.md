@@ -103,8 +103,23 @@ From there, I created two virtual machines (VMs) within Oracle VirtualBox, a Dom
 <div align="center">
  <img src="https://imgur.com/8GeBvRi.png" height="90%" width="90%" alt="Deployment Configuration and Admin User Set Up"/>
 </div>
+<br />
+<br />
 
 
+<h3>Generating Sample Users with PowerShell Script</h3>
+<p>In this stage, I generated 1000 sample users in Active Directory efficiently using a PowerShell script.</p>
+<br />
+<ul>
+  <li><strong>Script Overview:</strong> The PowerShell script in the lab provides an efficient means of automating user account creation in Active Directory. It imports the requisite Active Directory module and orchestrates the generation of uniform passwords for user accounts. The script sources its list of randomized first and last names from a text file and adroitly combines them to create unique usernames. The process involves the creation of individual user accounts in Active Directory, encompassing details like passwords, display names, and other pertinent attributes. Additionally, it establishes a new Organizational Unit (OU) to house the newly generated user accounts.</li>
+  <li><strong>Running the Script:</strong> I executed the PowerShell script, importing the Active Directory module, and initiated the user creation process. It successfully created 1000 user accounts.</li>
+  <li><strong>User Account Verification:</strong> To ensure the effectiveness of the script, I verified that the user accounts were created in Active Directory. I also confirmed the presence of the users' Organizational Unit (OU) in Active Directory.</li>
+</ul>
+<div align="center">
+ <img src="https://imgur.com/Dl6oNrv.png" height="90%" width="90%" alt="Deployment Configuration and Admin User Set Up"/>
+</div>
+<br />
+<br />
 
 
 
