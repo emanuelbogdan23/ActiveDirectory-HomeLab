@@ -145,18 +145,13 @@ From there, I created two virtual machines (VMs) within Oracle VirtualBox, a Dom
   <li><strong>Virtualization Skills:</strong> I honed skills in virtual machine setup and management using Oracle VirtualBox.</li>
   <li><strong>DHCP Automation:</strong> Implementing a DHCP server provided insights into automating IP address allocation for seamless network connectivity.</li>
 </ul>
+<br />
+<br />
 
-
-
-
-
-
-
-
-
-
-
-
+<h4>Acknowledgment</h4>
+<p>I would like to express my gratitude to Josh Madakor, whose instructional video on YouTube (available at <a href="https://www.youtube.com/watch?v=MHsI8hJmggI&ab_channel=JoshMadakor">this link</a>) provided invaluable guidance and insights. The knowledge I gained from his video was instrumental in the successful execution of this project.</p>
+<br />
+<br />
 
 
 
