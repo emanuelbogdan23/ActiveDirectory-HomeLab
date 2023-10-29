@@ -121,9 +121,30 @@ From there, I created two virtual machines (VMs) within Oracle VirtualBox, a Dom
 <br />
 <br />
 
+<h3>Setting Up Windows 10 VM with Internal Network Interface</h3>
+<p>To expand the network, I created a Windows 10 VM in Oracle VirtualBox. It was configured to use an internal network interface to connect to our internal corporate network, distinct from the external internet network.</p>
+<ul>
+  <li><strong>VM Creation:</strong> Configured VM settings by selecting "Internal Network Adapter" for the VM to ensure it's isolated from the external network but can communicate within the internal network.</li>
+  <li><strong>Windows 10 Installation:</strong> Attached the Windows 10 ISO and installed Windows 10 as a local account to facilitate domain joining later.</li>
+  <li><strong>Joining Corporate Domain:</strong> Joined the corporate domain ("mydomain.com") using domain credentials.</li>
+  <li><strong>Final Network Testing:</strong> Verified network connectivity, IP configuration, DNS resolution, and access to network resources.</li>
+</ul>
+<p>This addition completes the lab's network infrastructure, mirroring a real corporate environment.</p>
+<div align="center">
+ <img src="https://imgur.com/Af8SVfa.png" height="90%" width="90%" alt="Deployment Configuration and Admin User Set Up"/>
+</div>
+<br />
+<br />
 
-
-
+<h3>Key Learnings</h3>
+<ul>
+  <li><strong>Active Directory Mastery:</strong> I acquired in-depth knowledge of Active Directory, mastering domain controllers, user management, and domain configuration.</li>
+  <li><strong>Network Proficiency:</strong> I became proficient in network setup, including IP addressing, NIC configuration, and DHCP server implementation.</li>
+  <li><strong>Network Architecture:</strong> The project's network diagram deepened my grasp of network infrastructure, especially internal and external connections.</li>
+  <li><strong>Scripting Efficiency:</strong> Utilizing PowerShell for user automation revealed the power of scripting in simplifying repetitive tasks.</li>
+  <li><strong>Virtualization Skills:</strong> I honed skills in virtual machine setup and management using Oracle VirtualBox.</li>
+  <li><strong>DHCP Automation:</strong> Implementing a DHCP server provided insights into automating IP address allocation for seamless network connectivity.</li>
+</ul>
 
 
 
