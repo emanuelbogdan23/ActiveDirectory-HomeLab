@@ -121,6 +121,7 @@ From there, I created two virtual machines (VMs) within Oracle VirtualBox, a Dom
 <br />
 <br />
 
+
 <h3>Setting Up Windows 10 VM with Internal Network Interface</h3>
 <p>To expand the network, I created a Windows 10 VM in Oracle VirtualBox. It was configured to use an internal network interface to connect to our internal corporate network, distinct from the external internet network.</p>
 <ul>
@@ -136,6 +137,7 @@ From there, I created two virtual machines (VMs) within Oracle VirtualBox, a Dom
 <br />
 <br />
 
+
 <h3>Key Learnings</h3>
 <ul>
   <li><strong>Active Directory Mastery:</strong> I acquired in-depth knowledge of Active Directory, mastering domain controllers, user management, and domain configuration.</li>
@@ -146,7 +148,7 @@ From there, I created two virtual machines (VMs) within Oracle VirtualBox, a Dom
   <li><strong>DHCP Automation:</strong> Implementing a DHCP server provided insights into automating IP address allocation for seamless network connectivity.</li>
 </ul>
 <br />
-<br />
+
 
 <h4>Acknowledgment</h4>
 <p>I would like to express my gratitude to Josh Madakor, whose instructional video on YouTube (available at <a href="https://www.youtube.com/watch?v=MHsI8hJmggI&ab_channel=JoshMadakor">this link</a>) provided invaluable guidance and insights. The knowledge I gained from his video was instrumental in the successful execution of this project.</p>
