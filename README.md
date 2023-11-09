@@ -1,7 +1,9 @@
 <h1>Active Directory - Home Lab</h1>
 
 <h2>Description</h2>
-In the Active Directory Home Lab project, I created a functional Active Directory environment using Oracle VirtualBox. This involved setting up a domain controller, configuring IP addressing, and installing Active Directory services. I also automated user creation with PowerShell and created a client machine connected to the domain. This hands-on experience has deepened my understanding of Active Directory and Windows networking, providing valuable skills for network administration and system management.
+In this tutorial, we look into real-time cyber threat detection and response. I will set up Azure Sentinel, a powerful Security Information and Event Management (SIEM) solution, and connected it to a live virtual machine that's masquerading as a honey pot, enticing would-be attackers.
+
+What makes this project fun is that we will be witnessing live attacks—specifically, Remote Desktop Protocol (RDP) brute force attempts—from all corners of the globe. Additionally, we will leverage a PowerShell script to extract the geographical information of these attackers, and then we'll visualize their locations on the Azure Sentinel Map.
 <br />
 
 
